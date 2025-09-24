@@ -13,13 +13,31 @@ function esCapicua(int $n): bool
         return false;
     }
 }
-esCapicua(12321);
+echo esCapicua(12321);
+echo esCapicua(12345);
 ?>
 ```
 ---
 ## Escalera de asteriscos
 ```php
+<?php
+function montaniaAsteriscos(int $altura, int $repeticiones): void {
+    for ($i = 1; $i <= $altura; $i++) {
+        $linea = "";
+        $espacios = ($altura - $i) * 2;
 
+        for ($j = 1; $j <= $repeticiones; $j++) {
+            if ($j % 2 == 0) { 
+                $linea .= str_repeat(" ", $espacios) . str_repeat("*", $i);
+            } else {           
+                $linea .= str_repeat("*", $i);
+            }
+        }
+        echo $linea . "\n";
+    }
+}
+montaniaAsteriscos(4, 3);
+?>
 ```
 ---
 ## Suma de dígitos
@@ -62,5 +80,22 @@ echo array_sum($multiplos);
 ---
 ## Secuencia de Collatz
 ```php
-
+<?php
+    function secuenciaCollatz(int $n): array{
+        $array = [$n];
+        while ($n != 1) {
+            if ($n % 2 === 0) {
+            $n /= 2;
+            $array[] = $n;
+        }else{
+            $n *= 3;
+            $n += 1; 
+            $array[] = $n;
+        }
+        }
+        return $array;
+    }
+    $secuencia = secuenciaCollatz(6);
+    echo implode(", ", $secuencia);
+?>
 ```
