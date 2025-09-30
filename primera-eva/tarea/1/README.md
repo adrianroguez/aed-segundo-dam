@@ -7,7 +7,7 @@
 1. **Mayor de dos números**
 ```php
 <?php
-// Mayor de dos números
+// Mayor de dos numeros
 $numero1 = 1;
 $numero2 = 1;
 
@@ -115,7 +115,7 @@ for ($i = 1; $i <= 10; $i++) {
 8. **Números pares**
 ```php
 <?php
-// Números pares
+// Numeros pares
 for ($i = 1; $i <= 50; $i++) {
     if ($i % 2 == 0) {
         echo "$i\n";
@@ -127,7 +127,7 @@ for ($i = 1; $i <= 50; $i++) {
 9. **Cuenta atrás**
 ```php
 <?php
-// Cuenta atrás
+// Cuenta atras
 for ($i = 10; $i >= 1; $i--) {
     echo "$i\n";
     if ($i == 1) {
@@ -159,7 +159,7 @@ echo "$numero! = $resultado\n";
 11. **Números primos**
 ```php
 <?php
-// Números primos
+// Numeros primos
 for ($i = 2; $i <= 50; $i++) {
     $esPrimo = true;
     for ($j = 2; $j < $i; $j++) {
@@ -196,7 +196,7 @@ for ($i = 2; $i <= 20; $i++) {
 13. **Múltiplos de un número**
 ```php
 <?php
-// Múltiplos de un número
+// Multiplos de un numero
 $numero = 3;
 $multiplo = 0;
 
@@ -230,7 +230,7 @@ echo "$sumaImpares\n";
 15. **Adivinar número**
 ```php
 <?php
-// Adivinar número
+// Adivinar numero
 $numero = rand(1, 20);
 $adivinado = false;
 
@@ -255,7 +255,7 @@ while (!$adivinado) {
 16. **Número perfecto**
 ```php
 <?php
-// Número perfecto
+// Numero perfecto
 $numero = 6;
 $suma = 0;
 
@@ -276,7 +276,7 @@ if ($numero == $suma) {
 17. **Invertir número**
 ```php
 <?php
-// Invertir número
+// Invertir numero
 $numero = 123;
 echo strrev((string)$numero)."\n";
 
@@ -285,7 +285,7 @@ echo strrev((string)$numero)."\n";
 18. **Palíndromo**
 ```php
 <?php
-// Palíndromo
+// Palindromo
 $palabra = "anilina";
 $invertido = strrev($palabra);
 
@@ -300,7 +300,7 @@ if ($palabra == $invertido) {
 19. **Máximo común divisor (MCD)**
 ```php
 <?php
-// Máximo común divisor (MCD)
+// Maximo comun divisor (MCD)
 $numero1 = 9;
 $numero2 = 6;
 
