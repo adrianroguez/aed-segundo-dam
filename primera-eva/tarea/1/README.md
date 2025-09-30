@@ -1,4 +1,4 @@
-# Code, Learn & Practice (Programación de Servicios y Procesos: "Concurrencia, procesos e hilos")
+# Code, Learn & Practice(Acceso a Datos: "Introducción a Php")
 
 ## Bloque 1: Conceptos básicos (introducción a PHP)
 
@@ -7,62 +7,71 @@
 1. **Mayor de dos números**
 ```php
 <?php
+// Mayor de dos números
 $numero1 = 1;
 $numero2 = 1;
 
-if ($numero1 == $numero2) {
-    echo "Son iguales";
-} elseif ($numero1 > $numero2) {
-    echo "El primer número es mayor";
+if ($numero1 > $numero2) {
+    echo "El primer número es mayor\n";
+} elseif ($numero1 < $numero2) {
+    echo "El segundo número es mayor\n";
 } else {
-    echo "El segundo número es mayor";
+    echo "Ambos números son iguales\n";
 }
-?>
+
 ```
 
 2. **Edad permitida**
 ```php
 <?php
+// Edad permitida
 $edad = 17;
 
 if ($edad < 18) {
-    echo "Eres menor de edad";
+    echo "Eres menor de edad\n";
 } else {
-    echo "Eres mayor de edad";
+    echo "Eres mayor de edad\n";
 }
-?>
+
 ```
 
 3. **Positivo, negativo o cero**
 ```php
 <?php
-$numero = -10;
+// Positivo, negativo o cero
+$numero = 0;
 
-if ($numero < 0) {
-    echo "El número es negativo";
-} elseif ($numero == 0) {
-    echo "El número es 0";
+if ($numero > 0) {
+    echo "Es positivo\n";
+} elseif ($numero < 0) {
+    echo "Es negativo\n";
 } else {
-    echo "El número es positivo";
+    echo "Es cero\n";
 }
-?>
+
 ```
 
 4. **Nota final**
 ```php
 <?php
+// Nota final
 $nota = 7;
 
-if ($nota < 5) {
-    echo "Suspenso";
-} elseif ($nota < 7) {
-    echo "Aprobado";
-} elseif ($nota < 9) {
-    echo "Notable";
-} else {
-    echo "Sobresaliente";
+switch ($nota) {
+    case $nota < 5:
+        echo "Suspenso\n";
+        break;
+    case $nota > 4 && $nota < 7:
+        echo "Aprobado\n";
+        break;
+    case $nota > 6 && $nota < 9:
+        echo "Notable\n";
+        break;
+    default:
+        echo "Sobresaliente\n";
+        break;
 }
-?>
+
 ```
 
 ---
@@ -72,68 +81,75 @@ if ($nota < 5) {
 5. **Contar del 1 al 100**
 ```php
 <?php
-$contador = 1;
-do {
-    echo $contador . "\n";
-    $contador++;
-} while ($contador <= 100);
-?>
+// Contar del 1 al 100
+for ($i = 1; $i <= 100; $i++) {
+    echo "$i\n";
+}
+
 ```
 
 6. **Suma acumulada**
 ```php
 <?php
-$contador = 1;
+// Suma acumulada
 $suma = 0;
-
-while ($contador <= 50) {
-    $suma += $contador;
-    $contador++;
+for ($i = 1; $i <= 50; $i++) {
+    $suma += $i;
 }
-echo "La suma es: $suma";
-?>
+echo "$suma\n";
+
 ```
 
 7. **Tabla de multiplicar**
 ```php
 <?php
+// Tabla de multiplicar
 $numero = 5;
 for ($i = 1; $i <= 10; $i++) {
-    echo "$numero x $i = " . ($numero * $i) . "\n";
+    $resultado = $numero * $i;
+    echo "$numero x $i = $resultado\n";
 }
-?>
+
 ```
 
 8. **Números pares**
 ```php
 <?php
-for ($i = 2; $i <= 50; $i += 2) {
-    echo $i . "\n";
+// Números pares
+for ($i = 1; $i <= 50; $i++) {
+    if ($i % 2 == 0) {
+        echo "$i\n";
+    }
 }
-?>
+
 ```
 
 9. **Cuenta atrás**
 ```php
 <?php
+// Cuenta atrás
 for ($i = 10; $i >= 1; $i--) {
-    echo $i . "\n";
+    echo "$i\n";
+    if ($i == 1) {
+        echo "¡Fin!\n";
+    }
 }
-echo "¡Fin!";
-?>
+
 ```
 
 10. **Factorial**
 ```php
 <?php
+// Factorial
 $numero = 5;
-$factorial = 1;
+$resultado = 1;
 
 for ($i = 1; $i <= $numero; $i++) {
-    $factorial *= $i;
+    $resultado *= $i;
 }
-echo "$numero! = $factorial";
-?>
+
+echo "$numero! = $resultado\n";
+
 ```
 
 ---
@@ -143,86 +159,93 @@ echo "$numero! = $factorial";
 11. **Números primos**
 ```php
 <?php
-for ($j = 2; $j <= 50; $j++) {
+// Números primos
+for ($i = 2; $i <= 50; $i++) {
     $esPrimo = true;
-    for ($i = 2; $i < $j; $i++) {
-        if ($j % $i == 0) {
+    for ($j = 2; $j < $i; $j++) {
+        if ($i % $j == 0) {
             $esPrimo = false;
             break;
         }
     }
     if ($esPrimo) {
-        echo $j . "\n";
+        echo "$j\n";
     }
 }
-?>
+
 ```
 
 12. **Fibonacci**
 ```php
 <?php
-$terminos = 20;
+// Fibonacci
 $a = 0;
 $b = 1;
-
 echo "$a\n";
 echo "$b\n";
 
-for ($i = 3; $i <= $terminos; $i++) {
-    $siguiente = $a + $b;
-    echo "$siguiente\n";
+for ($i = 2; $i <= 20; $i++) {
+    $siguienteNumero = $a + $b;
     $a = $b;
-    $b = $siguiente;
+    $b = $siguienteNumero;
+    echo "$siguienteNumero\n";
 }
-?>
+
 ```
 
 13. **Múltiplos de un número**
 ```php
 <?php
-$numero = 4;
+// Múltiplos de un número
+$numero = 3;
+$multiplo = 0;
 
-for ($i = $numero; $i <= 100; $i += $numero) {
-    echo "$i\n";
+for ($i = 0; $i <= 100; $i++) {
+    $multiplo = $numero * $i;
+    echo "$multiplo\n";
 }
-?>
+
 ```
 
 14. **Suma de pares e impares**
 ```php
 <?php
-$pares = 0;
-$impares = 0;
+// Suma de pares e impares
+$sumaPares = 0;
+$sumaImpares = 0;
 
-for ($i = 0; $i <= 100; $i++) { 
-    if ($i % 2 === 0) {
-        $pares += $i;
+for ($i = 1; $i <= 100; $i++) {
+    if ($i % 2 == 0) {
+        $sumaPares += $i;
     } else {
-        $impares += $i;
+        $sumaImpares += $i;
     }
 }
-echo "La suma de pares es $pares y la suma de impares es $impares";
-?>
+
+echo "$sumaPares\n";
+echo "$sumaImpares\n";
+
 ```
 
 15. **Adivinar número**
 ```php
 <?php
+// Adivinar número
 $numero = rand(1, 20);
 $adivinado = false;
 
 while (!$adivinado) {
-    $nDado = readline("Ingresa un número: ");
-    if ($nDado < $numero) {
+    $numeroIngresado = readline("Ingresa un número: \n");
+    if ($numeroIngresado < $numero) {
         echo "El número ingresado es más pequeño\n";
-    } elseif ($nDado > $numero) {
+    } elseif ($numeroIngresado > $numero) {
         echo "El número ingresado es más grande\n";
     } else {
-        $adivinado = true;
         echo "¡Adivinaste!\n";
+        break;
     }
 }
-?>
+
 ```
 
 ---
@@ -232,59 +255,54 @@ while (!$adivinado) {
 16. **Número perfecto**
 ```php
 <?php
-$numero = 8128;
-$sumaDivisores = 0;
+// Número perfecto
+$numero = 6;
+$suma = 0;
 
-for ($i = 1; $i <= $numero / 2; $i++) {
+for ($i = 1; $i < $numero; $i++) {
     if ($numero % $i == 0) {
-        $sumaDivisores += $i;
+        $suma += $i;
     }
 }
 
-if ($sumaDivisores == $numero) {
-    echo "$numero es un número perfecto.\n";
+if ($numero == $suma) {
+    echo "Es un número perfecto\n";
 } else {
-    echo "$numero no es un número perfecto.\n";
+    echo "No es un número perfecto\n";
 }
-?>
+
 ```
 
 17. **Invertir número**
 ```php
 <?php
-$numero = 123; 
-$invertido = 0;
+// Invertir número
+$numero = 123;
+echo strrev((string)$numero)."\n";
 
-echo "$numero\n";
-
-while ($numero > 0) {
-    $digito = $numero % 10;
-    $invertido = $invertido * 10 + $digito;
-    $numero = intdiv($numero, 10);
-}
-echo "$invertido\n";
-?>
 ```
 
 18. **Palíndromo**
 ```php
 <?php
-$palabra = "hola"; 
+// Palíndromo
+$palabra = "anilina";
 $invertido = strrev($palabra);
 
 if ($palabra == $invertido) {
-    echo "$palabra es palíndromo\n";
+    echo "Es un palíndromo\n";
 } else {
-    echo "$palabra no es palíndromo\n";
+    "No es un palíndromo\n";
 }
-?>
+
 ```
 
 19. **Máximo común divisor (MCD)**
 ```php
 <?php
-$numero1 = 28; 
-$numero2 = 18; 
+// Máximo común divisor (MCD)
+$numero1 = 9;
+$numero2 = 6;
 
 while ($numero2 != 0) {
     $temp = $numero2;
@@ -292,18 +310,11 @@ while ($numero2 != 0) {
     $numero1 = $temp;
 }
 
-echo "El MCD es: " . $numero1 . "\n";
-?>
+echo "MCD = $numero1\n";
+
 ```
 
 20. **Triángulo de asteriscos**
 ```php
-<?php
-for ($i = 1; $i <= 5; $i++) { 
-    for ($j = 1; $j <= $i; $j++) { 
-        echo "*";
-    }
-    echo "\n";
-}
-?>
+
 ```
