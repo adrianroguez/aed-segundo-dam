@@ -2,100 +2,95 @@
 ## Número capicúa (palíndromo numérico)
 ```php
 <?php
-function esCapicua(int $n): bool
+// Numero capicua (palindromo numerico)
+function esCapicua(int $numero): bool
 {
-    $nString = (String) $n;
-    $nInvertido = strrev($nString);
+    $numerotring = (string) $numero;
+    $invertido = strrev($numerotring);
 
-    if ($nString == $nInvertido) {
+    if ($numerotring == $invertido) {
         return true;
     } else {
         return false;
     }
 }
-echo esCapicua(12321);
-echo esCapicua(12345);
-?>
+
+echo esCapicua(12321) . "\n";
+
 ```
 ---
 ## Escalera de asteriscos
 ```php
-<?php
-function montaniaAsteriscos(int $altura, int $repeticiones): void {
-    for ($i = 1; $i <= $altura; $i++) {
-        $linea = "";
-        $espacios = ($altura - $i) * 2;
 
-        for ($j = 1; $j <= $repeticiones; $j++) {
-            if ($j % 2 == 0) { 
-                $linea .= str_repeat(" ", $espacios) . str_repeat("*", $i);
-            } else {           
-                $linea .= str_repeat("*", $i);
-            }
-        }
-        echo $linea . "\n";
-    }
-}
-montaniaAsteriscos(4, 3);
-?>
 ```
 ---
 ## Suma de dígitos
 ```php
 <?php
-function sumaDigitos(int $n): int
+// Suma de digitos
+function sumaDigitos(int $numero): int
 {
-    $nString = (string) $n;
-    $array = str_split($nString);
-    $tamanio = count($array);
     $suma = 0;
+    $numeroString = (string) $numero;
+    $array = str_split($numeroString);
+    $tamanio = count($array);
 
     for ($i = 0; $i < $tamanio; $i++) {
-        $numero = (int) $array[$i];
-        $suma += $numero;
+        $numeroActual = (int) $array[$i];
+        $suma += $numeroActual;
     }
+
     return $suma;
 }
-sumaDigitos(2025);
-?>
+
+echo sumaDigitos(2025) . "\n";
+
 ```
 ---
 ## Número secreto (múltiplos de 3 o 5)
 ```php
 <?php
-function multiplosTresOCinco(int $n): array
+// Numero secreto (multiplos de 3 o 5)
+function multiplosTresOCinco(int $numero): array
 {
     $array = [];
-    for ($i = 0; $i < $n; $i++) {
+
+    for ($i = 1; $i < $numero; $i++) {
         if ($i % 3 == 0 || $i % 5 == 0) {
-            $array[] = 1;
+            array_push($array, $i);
         }
     }
-    return $array;
+
+    return [
+        "Números" => $array,
+        "Suma" => array_sum($array)
+    ];
 }
-$multiplos = multiplosTresOCinco(10);
-echo array_sum($multiplos);
-?>
+
+print_r(multiplosTresOCinco(10));
+
 ```
 ---
 ## Secuencia de Collatz
 ```php
 <?php
-    function secuenciaCollatz(int $n): array{
-        $array = [$n];
-        while ($n != 1) {
-            if ($n % 2 === 0) {
-            $n /= 2;
-            $array[] = $n;
-        }else{
-            $n *= 3;
-            $n += 1; 
-            $array[] = $n;
+// Secuencia de Collatz
+function secuenciaCollatz($numero): array
+{
+    $array = [$numero];
+
+    while ($numero != 1) {
+        if ($numero % 2 == 0) {
+            $numero = $numero / 2;
+        } else {
+            $numero = $numero * 3 + 1;
         }
-        }
-        return $array;
+        $array[] = $numero;
     }
-    $secuencia = secuenciaCollatz(6);
-    echo implode(", ", $secuencia);
-?>
+
+    return $array;
+}
+
+print_r(secuenciaCollatz(6));
+
 ```
